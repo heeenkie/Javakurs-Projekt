@@ -4,10 +4,7 @@
  * and open the template in the editor.
  */
 /**
- * Author:  andreashenriksson
- * Created: 2019-nov-15
+ * Author:  David
+ * Created: Nov 15, 2019
  */
 
-INSERT INTO MENY VALUES(0001, 'LUNCH 1', 95);
-INSERT INTO MENY VALUES(0002, 'LUNCH 2', 105);
-INSERT INTO MENY VALUES(0003, 'LUNCH 3', 80);
