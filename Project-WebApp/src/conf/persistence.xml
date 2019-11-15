@@ -10,9 +10,7 @@
       <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
       <property name="javax.persistence.jdbc.password" value="db"/>
              
-      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />
-      <property name="javax.persistence.schema-generation.create-script-source" value="src/conf/sql/create.sql" />   
-      <property name="javax.persistence.sql-load-script-source" value="src/conf/sql/data.sql" />
+      <property name="javax.persistence.schema-generation.database.action" value="create" />
     </properties>
   </persistence-unit>
 </persistence>
