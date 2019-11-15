@@ -16,34 +16,41 @@ import javax.persistence.Persistence;
 /**
  *
  * @author andreashenriksson
- */
-@Named(value = "newJSFManagedBean")
-@RequestScoped
-public abstract class BaseDao {
-
+ * @param <T>
+*/
+public abstract class BaseDao<T> {
     
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("Project-WebAppPU");
+    EntityManager em = emf.createEntityManager();
 
-    public void persist(Object object) {
-        EntityManager em = emf.createEntityManager();
+    public void persist(T t) {
         try {
             em.getTransaction().begin();
-            em.persist(object);
+            if (em.contains(t)) {
+                em.merge(t);
+            }
+            em.persist(t);
             em.getTransaction().commit();
         } catch (Exception e) {
-            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", e);
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught dureing persist", e);
             em.getTransaction().rollback();
         } finally {
             em.close();
         }
     }
-
-    
-    
-    
-    
-    /**
-     * Creates a new instance of NewJSFManagedBean
-     */
-    
+    public void delete(T t) {
+        try{
+            em.getTransaction().begin();
+            if (em.contains(t)){
+                em.remove(t);
+                em.getTransaction().commit();
+            }
+        }
+        catch (Exception e) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Exception cought during remove", e);
+            em.getTransaction().rollback();
+        } finally {
+            em.close();
+        }
+    } 
 }

@@ -5,6 +5,7 @@
  */
 package dao;
 
+import entity.Meny;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 
@@ -14,11 +15,8 @@ import javax.enterprise.context.RequestScoped;
  */
 @Named(value = "menyDao")
 @RequestScoped
-public class MenyDao {
+public class MenyDao extends BaseDao<Meny>{
 
-    /**
-     * Creates a new instance of menyDao
-     */
     public MenyDao() {
     }
     
