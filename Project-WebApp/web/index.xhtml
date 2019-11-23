@@ -1,15 +1,47 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-        <h:link value="Test.xhtml" outcome="Test"/>
-            
+        <title>Antons skafferi - Startsida</title>
+        <h1 class="header">Antons skafferi</h1>
 
+
+    </h:head>
+    
+    <h:body>
+    <h:outputStylesheet library="css" name="style.css"/>
+  
+        <h:form styleClass="column">
+            <h2>Kommande event</h2>
+            <h:link value="Test.xhtml" outcome="Test"/>
+        </h:form>
+        
+        <h:form styleClass="column">
+            <h2>Veckans Lunchmeny</h2>
+            #{lunchMenuModel.setMonday("Kyckling")}
+            #{lunchMenuModel.setTuesday("Pasta")}
+            #{lunchMenuModel.setWednesday("Pizza")}
+            #{lunchMenuModel.setThursday("Pankakor")}
+            #{lunchMenuModel.setFriday("Tacos")}
+            
+            <p1>Måndag: </p1> #{lunchMenuModel.monday} <br/>
+            <p1>Tisdag: </p1> #{lunchMenuModel.tuesday} <br/>
+            <p1>Onsdag: </p1> #{lunchMenuModel.wednesday} <br/>
+            <p1>Torsdag: </p1> #{lunchMenuModel.thursday} <br/>
+            <p1>Fredag: </p1> #{lunchMenuModel.friday} <br/>
+        </h:form>
+        
+        <h:form styleClass="column">
+            <h2>Boka bord här</h2>
+            <h:link value="BookTable.xhtml" outcome="BookTable"/>     
+        </h:form>   
+ 
+    <h:form styleClass="footer">
+        <p1>Footer</p1>
+    </h:form>
     </h:body>
 </html>
 
