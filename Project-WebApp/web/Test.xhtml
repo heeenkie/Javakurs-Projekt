@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+            <h:form>
+            <br/>
+            <h:outputLabel value="Create Dish" />
+            <br/>
+            <h:outputLabel value="Name: " />
+            <h:inputText value="#{testModel.dish.name}" />
+            <h:outputLabel value="\t Description: " />
+            <h:inputText value="#{testModel.dish.description}" />
+            <h:outputLabel value="\t Price " />
+            <h:inputText value="#{testModel.dish.price}" />
+            <br/>
+            <h:commandButton value="Save" action="#{testModel.saveDish()}" />
+            <br/>
+            #{testModel.dishes}
+        </h:form>
+        <h:form>
+            <br/>
+            <h:outputLabel value="Create Ordering" />
+            <br/>
+            <h:outputLabel value="With timestamp: " />
+            <h:selectBooleanCheckbox onclick="#{testModel.ordering.setTimestamp()}"/>
+            <br/>
+            <h:commandButton value="Save" action="#{testModel.saveOrdering()}" />
+            <br/>
+            #{testModel.orderings}
+        </h:form>
+    </h:body>
+</html>
+

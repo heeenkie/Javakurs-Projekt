@@ -7,32 +7,9 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-            <h:form>
-            <br/>
-            <h:outputLabel value="Create Dish" />
-            <br/>
-            <h:outputLabel value="Name: " />
-            <h:inputText value="#{testModel.dish.name}" />
-            <h:outputLabel value="\t Description: " />
-            <h:inputText value="#{testModel.dish.description}" />
-            <h:outputLabel value="\t Price " />
-            <h:inputText value="#{testModel.dish.price}" />
-            <br/>
-            <h:commandButton value="Save" action="#{testModel.saveDish()}" />
-            <br/>
-            #{testModel.dishes}
-        </h:form>
-        <h:form>
-            <br/>
-            <h:outputLabel value="Create Ordering" />
-            <br/>
-            <h:outputLabel value="With timestamp: " />
-            <h:selectBooleanCheckbox onclick="#{testModel.ordering.setTimestamp()}"/>
-            <br/>
-            <h:commandButton value="Save" action="#{testModel.saveOrdering()}" />
-            <br/>
-            #{testModel.orderings}
-        </h:form>
+        <h:link value="Test.xhtml" outcome="Test"/>
+            
+
     </h:body>
 </html>
 
