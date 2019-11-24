@@ -21,8 +21,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "PERSON")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Ordering.findAll", query = "SELECT p FROM Person p"),
-    @NamedQuery(name = "Ordering.findByOrderingid", query = "SELECT p FROM Person p WHERE p.personid = :personid")
+    @NamedQuery(name = "Person.findAll", query = "SELECT p FROM Person p"),
+    @NamedQuery(name = "Person.findByPersonid", query = "SELECT p FROM Person p WHERE p.personid = :personid")
 })
 public class Person implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -37,11 +37,35 @@ public class Person implements Serializable {
     private String name;
     
     @Column(name = "FULLTIMEEMPLOYEE")
-    private Boolean fulltimeemployee;
+    private Boolean fulltimeEmployee;
     
     public Person() {
     }
    
+    public Integer getPersonid() {
+        return personid;
+    }
+
+    public void setPersonid(Integer personid) {
+        this.personid = personid;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Boolean getFulltimeEmployee() {
+        return fulltimeEmployee;
+    }
+
+    public void setFulltimeEmployee(Boolean fulltimeEmployee) {
+        this.fulltimeEmployee = fulltimeEmployee;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -65,29 +89,5 @@ public class Person implements Serializable {
     @Override
     public String toString() {
         return "entity.Person[ personid=" + getPersonid() + " ]";
-    }
-
-    public Integer getPersonid() {
-        return personid;
-    }
-
-    public void setPersonid(Integer personid) {
-        this.personid = personid;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Boolean getFulltimeemployee() {
-        return fulltimeemployee;
-    }
-
-    public void setFulltimeemployee(Boolean fulltimeemployee) {
-        this.fulltimeemployee = fulltimeemployee;
     }
 }

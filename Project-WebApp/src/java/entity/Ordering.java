@@ -19,8 +19,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -42,8 +45,9 @@ public class Ordering implements Serializable {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer orderingid;
     
-    @Column(name = "TIMESTAMP")
-    private Date timestamp;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "ORDERTIME")
+    private Date ordertime;
     
     @ManyToMany
     @JoinTable(
@@ -64,14 +68,15 @@ public class Ordering implements Serializable {
         this.orderingid = orderingid;
     }
     
-    public Date getTimestamp() {
-        return timestamp;
+    public Date getOrdertime() {
+        return ordertime;
     }
 
-    public void setTimestamp(Date date) {
-        this.timestamp = date;
+    public void setOrdertime(Date ordertime) {
+        this.ordertime = ordertime;
     }
     
+    @XmlTransient
     public List<Dish> getDishes() {
         return dishes;
     }
@@ -114,6 +119,4 @@ public class Ordering implements Serializable {
     public String toString() {
         return "entity.Ordering[ orderingid=" + getOrderingid() + " ]";
     }
-
-
 }
