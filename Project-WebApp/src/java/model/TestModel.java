@@ -58,11 +58,6 @@ public class TestModel {
     
     public void saveOrdering() {
         if (this.ordering != null) {
-            if (pos != null) {
-                for(int i=0; i<getDishes().size(); i++){
-                    this.ordering.addDish(getDishes().get(1));
-                }
-            }
             orderingDao.persist(this.ordering);
             updateOrderings();
             ordering = new Ordering();

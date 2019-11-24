@@ -6,17 +6,20 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -24,9 +27,11 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "DISH")
+@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Dish.findAll", query = "SELECT d FROM Dish d"),
-    @NamedQuery(name = "Dish.findByDishid", query = "SELECT d FROM Dish d WHERE d.dishid = :dishid")})
+    @NamedQuery(name = "Dish.findByDishid", query = "SELECT d FROM Dish d WHERE d.dishid = :dishid")
+})
 public class Dish implements Serializable {
     private static final long serialVersionUID = 1L;
     
@@ -50,6 +55,9 @@ public class Dish implements Serializable {
     @Column(name = "PRICE")
     private Double price;
       
+    @ManyToMany(mappedBy = "dishes")
+    private List<Ordering> orderings;
+        
     public Dish() {
     }
 
@@ -85,6 +93,14 @@ public class Dish implements Serializable {
         this.price = price;
     }
 
+    public List<Ordering> getOrderings() {
+        return orderings;
+    }
+
+    public void setOrderings(List<Ordering> orderings) {
+        this.orderings = orderings;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -109,5 +125,4 @@ public class Dish implements Serializable {
     public String toString() {
         return "entity.Dish[ name=" + name + " ]";
     }
-
 }

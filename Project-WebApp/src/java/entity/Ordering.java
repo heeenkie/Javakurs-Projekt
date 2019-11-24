@@ -7,11 +7,15 @@ package entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -27,7 +31,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Ordering.findAll", query = "SELECT o FROM Ordering o"),
-    @NamedQuery(name = "Ordering.findByOrderingid", query = "SELECT o FROM Ordering o WHERE o.orderingid = :orderingid")})
+    @NamedQuery(name = "Ordering.findByOrderingid", query = "SELECT o FROM Ordering o WHERE o.orderingid = :orderingid")
+})
 public class Ordering implements Serializable {
     private static final long serialVersionUID = 1L;
     
@@ -40,25 +45,55 @@ public class Ordering implements Serializable {
     @Column(name = "TIMESTAMP")
     private Date timestamp;
     
+    @ManyToMany
+    @JoinTable(
+        name = "DISH_ORDERING", 
+        joinColumns = @JoinColumn(name = "ORDERINGID"), 
+        inverseJoinColumns = @JoinColumn(name = "DISHID")
+    )
+    private List<Dish> dishes;
+    
     public Ordering() {
     }
 
+        public Integer getOrderingid() {
+        return orderingid;
+    }
+
+    public void setOrderingid(Integer orderingid) {
+        this.orderingid = orderingid;
+    }
+    
     public Date getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp() {
-        if (timestamp != null) {
-            this.timestamp = new Date();
-        } else {
-            this.timestamp = null;
-        }
+    public void setTimestamp(Date date) {
+        this.timestamp = date;
     }
     
+    public List<Dish> getDishes() {
+        return dishes;
+    }
+
+    public void setDishes(List<Dish> dishes) {
+        this.dishes = dishes;
+    }
+    
+    public void addDish(Dish dish) {
+        getDishes().add(dish);
+        dish.getOrderings().add(this);
+    }
+ 
+    public void removeDish(Dish dish) {
+        getDishes().remove(dish);
+        dish.getOrderings().remove(this);
+    }
+   
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (orderingid != null ? orderingid.hashCode() : 0);
+        hash += (getOrderingid() != null ? getOrderingid().hashCode() : 0);
         return hash;
     }
 
@@ -69,7 +104,7 @@ public class Ordering implements Serializable {
             return false;
         }
         Ordering other = (Ordering) object;
-        if ((this.orderingid == null && other.orderingid != null) || (this.orderingid != null && !this.orderingid.equals(other.orderingid))) {
+        if ((this.getOrderingid() == null && other.getOrderingid() != null) || (this.getOrderingid() != null && !this.orderingid.equals(other.orderingid))) {
             return false;
         }
         return true;
@@ -77,6 +112,8 @@ public class Ordering implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.Ordering[ orderingid=" + orderingid + " ]";
+        return "entity.Ordering[ orderingid=" + getOrderingid() + " ]";
     }
+
+
 }
