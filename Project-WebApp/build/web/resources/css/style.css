@@ -1,0 +1,23 @@
+
+.header{
+  background-color: #f1f1f1;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.column{
+    background-color: lightcyan;
+    float: left;
+    width: 33.33%;
+    height: 550px; 
+
+}
+.footer{
+    background-color: pink;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
+
