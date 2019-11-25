@@ -38,8 +38,8 @@ public class Dish implements Serializable {
     
     @Id
     @NotNull
-    @Column(name = "DISHID")
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "DISHID")
     private Integer dishid;
     
     @NotNull

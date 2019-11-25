@@ -9,6 +9,6 @@ package dao;
  *
  * @author andreashenriksson
  */
-public class BaseDao {
+public class TableReservationDao {
     
 }

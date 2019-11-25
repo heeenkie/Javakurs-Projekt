@@ -41,8 +41,8 @@ public class Ordering implements Serializable {
     
     @Id
     @NotNull
-    @Column(name = "ORDERINGID")
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "ORDERINGID")
     private Integer orderingid;
     
     @Temporal(TemporalType.TIMESTAMP)

@@ -29,8 +29,8 @@ public class Person implements Serializable {
     
     @Id
     @NotNull
-    @Column(name = "PERSONID")
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "PERSONID")
     private Integer personid;
     
     @Column(name = "NAME")
