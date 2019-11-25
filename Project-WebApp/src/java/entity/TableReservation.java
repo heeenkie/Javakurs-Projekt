@@ -9,9 +9,12 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -50,6 +53,10 @@ public class TableReservation implements Serializable {
     @Column(name = "BOOKEDTABLE")
     private Integer bookedTable;
     
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "DININGTABLEID")
+    private DiningTable diningTable;
+    
     public TableReservation() {
     }
         
@@ -85,6 +92,14 @@ public class TableReservation implements Serializable {
         this.bookedTable = bookedTable;
     }
 
+    public DiningTable getDiningTable() {
+        return diningTable;
+    }
+
+    public void setDiningTable(DiningTable diningTable) {
+        this.diningTable = diningTable;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -109,5 +124,6 @@ public class TableReservation implements Serializable {
     public String toString() {
         return "entity.TableReservation[ id=" + tableReservationid + " ]";
     }
+
     
 }

@@ -52,10 +52,15 @@ public class Dish implements Serializable {
     private String description;
     
     @NotNull
-    @Min(value=0)
+    @Min(value = 0)
     @Column(name = "PRICE")
     private Double price;
       
+    @NotNull
+    @Min(value = 0)
+    @Column(name = "COOKINGTIME")
+    private Integer cookingTime; 
+    
     @ManyToMany(mappedBy = "dishes")
     private List<Ordering> orderings;
         
@@ -94,6 +99,14 @@ public class Dish implements Serializable {
         this.price = price;
     }
 
+    public Integer getCookingTime() {
+        return cookingTime;
+    }
+
+    public void setCookingTime(Integer cookingTime) {
+        this.cookingTime = cookingTime;
+    }
+    
     @XmlTransient
     public List<Ordering> getOrderings() {
         return orderings;

@@ -6,6 +6,7 @@
     <class>entity.TableReservation</class>
     <class>entity.LunchMenu</class>
     <class>entity.DiningTable</class>
+    <class>entity.EmployeeSchedule</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/ProjectDB"/>

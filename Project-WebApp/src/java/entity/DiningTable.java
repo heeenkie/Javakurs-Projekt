@@ -6,11 +6,13 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -32,6 +34,9 @@ public class DiningTable implements Serializable {
     @Column(name = "CAPACITY")
     private Integer capacity;
 
+    @OneToMany(mappedBy = "diningTable")
+    private List<Ordering> orderings;
+      
     public Integer getDiningTableid() {
         return diningTableid;
     }
@@ -56,6 +61,24 @@ public class DiningTable implements Serializable {
         this.capacity = capacity;
     }
 
+    public List<Ordering> getOrderings() {
+        return orderings;
+    }
+
+    public void setOrderings(List<Ordering> orderings) {
+        this.orderings = orderings;
+    }
+    
+    public void addOrdering(Ordering ordering) {
+        getOrderings().add(ordering);
+        ordering.setDiningTable(this);
+    }
+ 
+    public void removeOrdering(Ordering ordering) {
+        getOrderings().remove(ordering);
+        ordering.setDiningTable(null);
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -79,6 +102,5 @@ public class DiningTable implements Serializable {
     @Override
     public String toString() {
         return "entity.DiningTable[ diningTableid=" + diningTableid + " ]";
-    }
-    
+    }  
 }

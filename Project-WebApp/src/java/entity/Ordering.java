@@ -10,12 +10,14 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -49,6 +51,13 @@ public class Ordering implements Serializable {
     @Column(name = "ORDERTIME")
     private Date ordertime;
     
+    @Column(name = "ISDONE")
+    private Boolean isDone;
+    
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="DININGTABLEID")
+    private DiningTable diningTable;
+      
     @ManyToMany
     @JoinTable(
         name = "DISH_ORDERING", 
@@ -74,6 +83,22 @@ public class Ordering implements Serializable {
 
     public void setOrdertime(Date ordertime) {
         this.ordertime = ordertime;
+    }
+
+    public Boolean getIsDone() {
+        return isDone;
+    }
+
+    public void setIsDone(Boolean isDone) {
+        this.isDone = isDone;
+    }
+    
+    public DiningTable getDiningTable() {
+        return diningTable;
+    }
+
+    public void setDiningTable(DiningTable diningTable) {
+        this.diningTable = diningTable;
     }
     
     @XmlTransient
@@ -119,4 +144,6 @@ public class Ordering implements Serializable {
     public String toString() {
         return "entity.Ordering[ orderingid=" + getOrderingid() + " ]";
     }
+
+
 }
