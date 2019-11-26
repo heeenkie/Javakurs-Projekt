@@ -6,42 +6,46 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Antons skafferi - Startsida</title>
-        <h1 class="header">Antons skafferi</h1>
-
-
+        <h:outputStylesheet library="css" name="style.css"/>
     </h:head>
     
     <h:body>
-    <h:outputStylesheet library="css" name="style.css"/>
-  
-        <h:form styleClass="column">
-            <h2>Kommande event</h2>
-        </h:form>
+        <div class="header">
+            <h1>Antons skafferi</h1>
+        </div>
         
-        <h:form styleClass="column">
-            <h2>Veckans Lunchmeny</h2>
-            #{lunchMenuModel.setMonday("Kyckling")}
-            #{lunchMenuModel.setTuesday("Pasta")}
-            #{lunchMenuModel.setWednesday("Pizza")}
-            #{lunchMenuModel.setThursday("Pankakor")}
-            #{lunchMenuModel.setFriday("Tacos")}
-            
-            <p1>Måndag: </p1> #{lunchMenuModel.monday} <br/>
-            <p1>Tisdag: </p1> #{lunchMenuModel.tuesday} <br/>
-            <p1>Onsdag: </p1> #{lunchMenuModel.wednesday} <br/>
-            <p1>Torsdag: </p1> #{lunchMenuModel.thursday} <br/>
-            <p1>Fredag: </p1> #{lunchMenuModel.friday} <br/>
-        </h:form>
-        
-        <h:form styleClass="column">
-            <h2>Boka bord här</h2>
-            <h:link value="BookTable.xhtml" outcome="BookTable"/>     
-        </h:form>   
- 
-    <h:form styleClass="footer">
-        <p1>Footer</p1>
-        <h:link value="Test.xhtml" outcome="Test"/>
-    </h:form>
+        <div class="maincontent">
+            <div class="column">
+                <h2>Kommande event</h2>
+            </div>
+
+            <div class="column">
+                <h2>Veckans Lunchmeny</h2>
+                #{lunchMenuModel.setMonday("Kyckling")}
+                #{lunchMenuModel.setTuesday("Pasta")}
+                #{lunchMenuModel.setWednesday("Pizza")}
+                #{lunchMenuModel.setThursday("Pankakor")}
+                #{lunchMenuModel.setFriday("Tacos")}
+
+                <p>Måndag: #{lunchMenuModel.monday}</p>
+                <p>Tisdag: #{lunchMenuModel.tuesday}</p>
+                <p>Onsdag: #{lunchMenuModel.wednesday}</p>
+                <p>Torsdag: #{lunchMenuModel.thursday}</p>
+                <p>Fredag: #{lunchMenuModel.friday}</p>
+            </div>
+
+            <div class="column">
+                <h2>Boka bord här</h2>
+                <h:link value="BookTable.xhtml" outcome="BookTable"/>
+            </div>
+        </div>
+        <div class="footer">
+            <h3>Kontakt</h3>
+                <p>Telefonnummer: </p>
+                <p>Address: </p>
+                <p>Email: </p>
+            <h:link value="Test.xhtml" outcome="Test"/>
+        </div>
     </h:body>
 </html>
 
