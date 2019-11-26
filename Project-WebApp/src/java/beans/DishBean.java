@@ -49,6 +49,11 @@ public class DishBean implements Serializable {
         this.dishes = dishes;
     }
     
+    public void save() {
+        persist(this.dish);
+        this.dish = new Dish();
+        this.dishes = findAll();
+    }
     public void persist(Dish entity) {
         EntityManager em = emf.createEntityManager();
         try {

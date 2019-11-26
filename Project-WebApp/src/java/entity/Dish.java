@@ -36,12 +36,11 @@ public class Dish implements Serializable {
     private static final long serialVersionUID = 1L;
     
     @Id
-    @NotNull
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @NotNull
     @Column(name = "DISHID")
     private Integer dishid;
     
-    @NotNull
     @Size(max = 64)
     @Column(name = "NAME")
     private String name;
@@ -50,11 +49,9 @@ public class Dish implements Serializable {
     @Column(name = "DESCRIPTION")
     private String description;
     
-    @NotNull
     @Column(name = "PRICE")
     private Double price;
       
-    @NotNull
     @Column(name = "COOKINGTIME")
     private Integer cookingTime; 
     

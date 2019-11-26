@@ -18,9 +18,9 @@
             <h:inputText value="#{dishBean.dish.price}" />
             <h:outputLabel value="Cooking Time: " />
             <h:inputText value="#{dishBean.dish.cookingTime}" />
-            <h:commandButton value="Save" action="#{dishBean.persist(dishBean.dish)}" />  
+            <h:commandButton value="Save" action="#{dishBean.save()}" />  
             
-            <c:forEach items="#{dishModel.dishes}" var="dish">
+            <c:forEach items="#{dishBean.dishes}" var="dish">
             <br/> ${dish}
             </c:forEach>
         </h:form>
