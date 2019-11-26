@@ -9,21 +9,22 @@
     </h:head>
     <h:body>
         <h:outputStylesheet library="css" name="test.css"/>
-        <!--<h:form>
+        <h:form>
             <h:outputLabel value="Name: " />
-            <h:inputText value="#{testModel.dish.name}" />
+            <h:inputText value="#{dishBean.dish.name}" />
             <h:outputLabel value="Description: " />
-            <h:inputText value="#{testModel.dish.description}" />
+            <h:inputText value="#{dishBean.dish.description}" />
             <h:outputLabel value="Price " />
-            <h:inputText value="#{testModel.dish.price}" />
+            <h:inputText value="#{dishBean.dish.price}" />
             <h:outputLabel value="Cooking Time: " />
-            <h:inputText value="#{testModel.dish.cookingTime}" />
-            <h:commandButton value="Save" action="#{testModel.saveDish()}" />        
-            <c:forEach items="#{testModel.dishes}" var="dish">
+            <h:inputText value="#{dishBean.dish.cookingTime}" />
+            <h:commandButton value="Save" action="#{dishBean.persist(dishBean.dish)}" />  
+            
+            <c:forEach items="#{dishModel.dishes}" var="dish">
             <br/> ${dish}
             </c:forEach>
         </h:form>
-        
+        <!--<
         <h:form>
             <h1>Create Ordering</h1>
             <h:outputLabel value="With timestamp: " />

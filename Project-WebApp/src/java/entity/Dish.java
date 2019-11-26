@@ -16,7 +16,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -136,6 +135,6 @@ public class Dish implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.Dish[ name=" + name + " ]";
+        return "entity.Dish[ dishid=" + dishid + ", name=" + name + " ]";
     }
 }

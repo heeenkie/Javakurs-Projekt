@@ -7,10 +7,10 @@ package beans;
 
 import entity.Dish;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.ejb.Stateless;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
@@ -25,11 +25,30 @@ import javax.persistence.Persistence;
 @Named(value = "dishBean")
 @SessionScoped
 public class DishBean implements Serializable {
+    private Dish dish = new Dish();
+    private List<Dish> dishes = new ArrayList<Dish>();
+    
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("Project-WebAppPU");
     
     public DishBean() {
     }
      
+    public Dish getDish() {
+        return dish;
+    }
+
+    public void setDish(Dish dish) {
+        this.dish = dish;
+    }
+
+    public List<Dish> getDishes() {
+        return dishes;
+    }
+
+    public void setDishes(List<Dish> dishes) {
+        this.dishes = dishes;
+    }
+    
     public void persist(Dish entity) {
         EntityManager em = emf.createEntityManager();
         try {
@@ -71,4 +90,5 @@ public class DishBean implements Serializable {
         em.close();
         return d;
     }  
+
 }
