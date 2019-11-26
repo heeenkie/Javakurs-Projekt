@@ -1,12 +1,19 @@
 
+body{
+    margin: 0px;
+    /*display: flex;*/
+}
+
 .header{
   background-color: #f1f1f1;
   text-align: center;
   padding-top: 10px;
   padding-bottom: 20px;
+  width: 100%
 }
 
-.column{
+.maincontent{
+    
     background-color: lightcyan;
     float: left;
     width: 33.33%;
@@ -18,6 +25,7 @@
     position: absolute;
     bottom: 0px;
     width: 100%;
+    text-align: center;
 }
 
 
