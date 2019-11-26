@@ -2,37 +2,36 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-            <h:form>
-            <br/>
-            <h:outputLabel value="Create Dish" />
-            <br/>
+        <h:outputStylesheet library="css" name="test.css"/>
+        <!--<h:form>
             <h:outputLabel value="Name: " />
             <h:inputText value="#{testModel.dish.name}" />
-            <h:outputLabel value="\t Description: " />
+            <h:outputLabel value="Description: " />
             <h:inputText value="#{testModel.dish.description}" />
-            <h:outputLabel value="\t Price " />
+            <h:outputLabel value="Price " />
             <h:inputText value="#{testModel.dish.price}" />
-            <br/>
-            <h:commandButton value="Save" action="#{testModel.saveDish()}" />
-            <br/>
-            #{testModel.dishes}
+            <h:outputLabel value="Cooking Time: " />
+            <h:inputText value="#{testModel.dish.cookingTime}" />
+            <h:commandButton value="Save" action="#{testModel.saveDish()}" />        
+            <c:forEach items="#{testModel.dishes}" var="dish">
+            <br/> ${dish}
+            </c:forEach>
         </h:form>
+        
         <h:form>
-            <br/>
-            <h:outputLabel value="Create Ordering" />
-            <br/>
+            <h1>Create Ordering</h1>
             <h:outputLabel value="With timestamp: " />
             <h:selectBooleanCheckbox onclick="#{testModel.ordering.ordertime}"/>
-            <br/>
             <h:commandButton value="Save" action="#{testModel.saveOrdering()}" />
-            <br/>
             #{testModel.orderings}
         </h:form>
+        -->
     </h:body>
 </html>
 

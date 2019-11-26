@@ -52,12 +52,10 @@ public class Dish implements Serializable {
     private String description;
     
     @NotNull
-    @Min(value = 0)
     @Column(name = "PRICE")
     private Double price;
       
     @NotNull
-    @Min(value = 0)
     @Column(name = "COOKINGTIME")
     private Integer cookingTime; 
     
