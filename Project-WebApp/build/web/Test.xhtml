@@ -18,7 +18,7 @@
             <h:inputText value="#{dishBean.dish.price}" />
             <h:outputLabel value="Cooking Time: " />
             <h:inputText value="#{dishBean.dish.cookingTime}" />
-            <h:commandButton value="Save" action="#{dishBean.save()}" />  
+            <h:commandButton value="Save" action="#{dishBean.save}" />  
             
             <c:forEach items="#{dishBean.dishes}" var="dish">
             <br/> ${dish}

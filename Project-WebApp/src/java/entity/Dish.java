@@ -41,11 +41,9 @@ public class Dish implements Serializable {
     @Column(name = "DISHID")
     private Integer dishid;
     
-    @Size(max = 64)
     @Column(name = "NAME")
     private String name;
     
-    @Size(max = 256)
     @Column(name = "DESCRIPTION")
     private String description;
     
