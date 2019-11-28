@@ -11,41 +11,65 @@
     
     <h:body>
         <div class="header">
-            <h1>Antons skafferi</h1>
+            <div class="logo">
+                <h1><h:link value="Antons Skafferi" outcome="index" class="logo"/></h1>
+            </div>
+            
+            <div class="buttons">
+                <a href="#lunch" class="button">Lunch</a>
+                <a href="#menu" class="button">Meny</a>
+                <a href="#booktable" class="button">Boka bord</a>
+                <a href="#event" class="button">Event</a>
+                <a href="#contact" class="button">Kontakt</a>
+                
+            </div>
         </div>
+        <!--./header-->
         
         <div class="maincontent">
-            <div class="column">
-                <h2>Kommande event</h2>
-            </div>
-
-            <div class="column">
-                <h2>Veckans Lunchmeny</h2>
+            <div class="lunch" id="lunch">
+                <h2>Dagens lunch</h2>
                 #{lunchMenuModel.setMonday("Kyckling")}
                 #{lunchMenuModel.setTuesday("Pasta")}
                 #{lunchMenuModel.setWednesday("Pizza")}
-                #{lunchMenuModel.setThursday("Pankakor")}
-                #{lunchMenuModel.setFriday("Tacos")}
+                #{lunchMenuModel.setThursday("Pannkakor")}
 
-                <p>Måndag: #{lunchMenuModel.monday}</p>
-                <p>Tisdag: #{lunchMenuModel.tuesday}</p>
-                <p>Onsdag: #{lunchMenuModel.wednesday}</p>
-                <p>Torsdag: #{lunchMenuModel.thursday}</p>
-                <p>Fredag: #{lunchMenuModel.friday}</p>
+                <h:outputText value='Måndag: #{lunchMenuModel.monday}'></h:outputText><br/>
+                <h:outputText value='Tisdag: #{lunchMenuModel.tuesday}'></h:outputText><br/>
+                <h:outputText value='Onsdag: #{lunchMenuModel.wednesday}'></h:outputText><br/>
+                <h:outputText value='Torsdag #{lunchMenuModel.thursday}'></h:outputText><br/>
+                <h:outputText value='Fredag #{lunchMenuModel.friday}'></h:outputText><br/>
             </div>
-
-            <div class="column">
-                <h2>Boka bord här</h2>
-                <h:link value="BookTable.xhtml" outcome="BookTable"/>
+            
+            <div class="menu" id="menu">
+                <h2>Meny</h2>
             </div>
+            
+            <div class="booktable" id='booktable'>
+                <h2>Boka bord</h2>
+            </div>
+            <div class="event" id="event">
+                <h2>Musikkvällar</h2>
+                <p>kldfkglj</p>
+                <p>kldfkglj</p>
+                <p>kldfkglj</p>
+                <p>kldfkglj</p>
+                <p>kldfkglj</p>
+                <p>kldfkglj</p>
+                <p>kldfkglj</p>
+            </div>
+            <h:link value="BookTable.xhtml" outcome="BookTable" />
         </div>
-        <div class="footer">
+        <!--./maincontent-->
+        <div class="footer" id="contact">
             <h3>Kontakt</h3>
-                <p>Telefonnummer: </p>
-                <p>Address: </p>
-                <p>Email: </p>
+                <p>Telefonnummer: <a href="tel:060-101100">060-101100</a></p>
+                <p>Email: <a href="mailto:antonsskafferi@gmail.com">antonsskafferi@gmail.com</a></p>
+                <p>Adress: Storgatan 73, Sundsvall <br/><br/><br/>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1848.9038103672392!2d17.282714085413886!3d62.3929216120434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46645df47d4b8591%3A0x96bb42541c079fb!2sStorgatan%2073A%2C%20852%2030%20Sundsvall!5e0!3m2!1sen!2sse!4v1574895299000!5m2!1sen!2sse" width="200" height="200" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                </p>
             <h:link value="Test.xhtml" outcome="Test"/>
         </div>
+        <!--./footer-->
     </h:body>
 </html>
-

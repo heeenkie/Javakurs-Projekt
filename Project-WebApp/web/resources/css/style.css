@@ -1,31 +1,51 @@
+*{
+    box-sizing: border-box;
+}
+
 
 body{
     margin: 0px;
-    /*display: flex;*/
+    text-align: center;
+    position: relative;
+    display: block;
+}
+
+div{
+    display: block;
 }
 
 .header{
-  background-color: #f1f1f1;
-  text-align: center;
-  padding-top: 10px;
-  padding-bottom: 20px;
-  width: 100%
+  background-color: #006666;
+  padding: 20px;
+}
+
+
+.logo{
+    color: white;
+    text-decoration: none;
+}
+
+.buttons a{
+    text-decoration: none;
+    color: black;
+    background-color: lightgray;
+    border-radius: 2px 2px 2px 2px;
+    padding: 7px;
+    padding-right: 15px;
+    padding-left: 15px;
+    size: 10px;
+}
+
+.buttons form{
+    display: inline;
 }
 
 .maincontent{
-    
-    background-color: lightcyan;
-    float: left;
-    width: 33.33%;
-    height: 550px; 
-
+    background-color: whitesmoke;
+    padding: 20px;
 }
 .footer{
-    background-color: pink;
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    text-align: center;
+    background-color: #dcdcdc;
+    padding: 20px;
+    line-height: 5px;
 }
-
-
