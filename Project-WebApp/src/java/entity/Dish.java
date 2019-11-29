@@ -17,7 +17,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -43,9 +42,6 @@ public class Dish implements Serializable {
     
     @Column(name = "NAME")
     private String name;
-    
-    @Column(name = "DESCRIPTION")
-    private String description;
     
     @Column(name = "PRICE")
     private Double price;
@@ -73,14 +69,6 @@ public class Dish implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-    
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public Double getPrice() {
@@ -130,6 +118,6 @@ public class Dish implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.Dish[ dishid=" + dishid + ", name=" + name + " ]";
+        return dishid +  ",   " + name + ",     Price: " + price + ",     Cooking Time: " + cookingTime;
     }
 }

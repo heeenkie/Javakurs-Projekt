@@ -10,29 +10,27 @@
     <h:body>
         <h:outputStylesheet library="css" name="test.css"/>
         <h:form>
-            <h:outputLabel value="Name: " />
-            <h:inputText value="#{dishBean.dish.name}" />
-            <h:outputLabel value="Description: " />
-            <h:inputText value="#{dishBean.dish.description}" />
-            <h:outputLabel value="Price " />
-            <h:inputText value="#{dishBean.dish.price}" />
-            <h:outputLabel value="Cooking Time: " />
-            <h:inputText value="#{dishBean.dish.cookingTime}" />
-            <h:commandButton value="Save" action="#{dishBean.save}" />  
-            
             <c:forEach items="#{dishBean.dishes}" var="dish">
-            <br/> ${dish}
+                ${dish} <br/><br/>
+            </c:forEach> 
+        </h:form>
+        <h:form>
+            <h:selectOneMenu value="#{orderingBean.dish}" converter="#{dishConverterBean}">
+                <f:selectItems value="#{dishBean.dishes}" var="dish" itemLabel="#{dish.name}" itemValue="#{dish}" />
+            </h:selectOneMenu>
+            <br/>
+            <h:commandButton value="Add Dish" onclick="#{orderingBean.addDish()}" />
+            <br/>
+            <c:forEach items="#{orderingBean.selectedDishes}" var="dish">
+                ${dish} <br/><br/>
+            </c:forEach>
+            <br/>
+            <h:commandButton value="Add Ordering" onclick="#{orderingBean.addOrdering()}" />
+            <br/>
+            <c:forEach items="#{orderingBean.orderings}" var="ordering">
+                ${ordering} <br/><br/>
             </c:forEach>
         </h:form>
-        <!--<
-        <h:form>
-            <h1>Create Ordering</h1>
-            <h:outputLabel value="With timestamp: " />
-            <h:selectBooleanCheckbox onclick="#{testModel.ordering.ordertime}"/>
-            <h:commandButton value="Save" action="#{testModel.saveOrdering()}" />
-            #{testModel.orderings}
-        </h:form>
-        -->
     </h:body>
 </html>
 

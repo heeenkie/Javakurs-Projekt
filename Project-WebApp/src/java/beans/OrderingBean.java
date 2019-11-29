@@ -5,12 +5,13 @@
  */
 package beans;
 
+import entity.Dish;
 import entity.Ordering;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.ejb.Stateless;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
@@ -24,12 +25,60 @@ import javax.persistence.Persistence;
 @Named(value = "orderingBean")
 @SessionScoped
 public class OrderingBean implements Serializable {
+    private List<Ordering> orderings;
+    private Ordering ordering;
+    private ArrayList<Dish> selectedDishes;
+    private Dish dish;
     
-     EntityManagerFactory emf = Persistence.createEntityManagerFactory("Project-WebAppPU");
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("Project-WebAppPU");
      
     public OrderingBean() {
+        orderings = new ArrayList<>();
+        ordering = null;
+        selectedDishes = new ArrayList<>();
+        dish = null;
     }
         
+    public List<Ordering> getOrderings() {
+        return findAll();
+    }
+
+    public void setOrderings(List<Ordering> orderings) {
+        this.orderings = orderings;
+    }
+
+    public List<Dish> getSelectedDishes() {
+        return selectedDishes;
+    }
+
+    public void setSelectedDishes(ArrayList<Dish> selectedDishes) {
+        this.selectedDishes = selectedDishes;
+    }
+
+    public Dish getDish() {
+        return dish;
+    }
+
+    public void setDish(Dish dish) {
+        this.dish = dish;
+    }
+    
+    public void addDish() {
+        if (dish != null) {
+          //  selectedDishes.add(dish); //Does not work
+            dish = null;
+        }
+    }
+    
+    public void addOrdering() {
+        if (ordering != null  && selectedDishes.isEmpty()) {
+            ordering.setDishes(selectedDishes);
+            persist(ordering);
+            ordering = null;
+            selectedDishes = null;
+        }
+    }
+    
     public void persist(Ordering entity) {
         EntityManager em = emf.createEntityManager();
         try {
@@ -71,5 +120,7 @@ public class OrderingBean implements Serializable {
         em.close();
         return o;
     }
+
+ 
     
 }

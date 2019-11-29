@@ -25,8 +25,8 @@ import javax.persistence.Persistence;
 @Named(value = "dishBean")
 @SessionScoped
 public class DishBean implements Serializable {
-    private Dish dish = new Dish();
-    private List<Dish> dishes = new ArrayList<Dish>();
+    private Dish dish;
+    private List<Dish> dishes;
     
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("Project-WebAppPU");
     
@@ -42,7 +42,7 @@ public class DishBean implements Serializable {
     }
 
     public List<Dish> getDishes() {
-        return dishes;
+        return findAll();
     }
 
     public void setDishes(List<Dish> dishes) {
