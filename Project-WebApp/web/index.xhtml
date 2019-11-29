@@ -29,16 +29,18 @@
         <div class="maincontent">
             <div class="lunch" id="lunch">
                 <h2>Dagens lunch</h2>
-                #{lunchMenuModel.setMonday("Kyckling")}
+                <img src="https://www.thebusinessspace.co.uk/wp-content/uploads/2014/10/FINAL-LUNCH-LOGO-3.jpg" width="400" height="100" alt="DagensLunchBild"/>
+                <br/>#{lunchMenuModel.setMonday("Kyckling")}
                 #{lunchMenuModel.setTuesday("Pasta")}
                 #{lunchMenuModel.setWednesday("Pizza")}
                 #{lunchMenuModel.setThursday("Pannkakor")}
+                #{lunchMenuModel.setFriday("Taco")}
 
                 <h:outputText value='Måndag: #{lunchMenuModel.monday}'></h:outputText><br/>
                 <h:outputText value='Tisdag: #{lunchMenuModel.tuesday}'></h:outputText><br/>
                 <h:outputText value='Onsdag: #{lunchMenuModel.wednesday}'></h:outputText><br/>
-                <h:outputText value='Torsdag #{lunchMenuModel.thursday}'></h:outputText><br/>
-                <h:outputText value='Fredag #{lunchMenuModel.friday}'></h:outputText><br/>
+                <h:outputText value='Torsdag: #{lunchMenuModel.thursday}'></h:outputText><br/>
+                <h:outputText value='Fredag: #{lunchMenuModel.friday}'></h:outputText><br/>
             </div>
             
             <div class="menu" id="menu">
@@ -47,18 +49,20 @@
             
             <div class="booktable" id='booktable'>
                 <h2>Boka bord</h2>
+                <h:link value="BookTable.xhtml" outcome="BookTable" />
             </div>
             <div class="event" id="event">
                 <h2>Musikkvällar</h2>
-                <p>kldfkglj</p>
-                <p>kldfkglj</p>
-                <p>kldfkglj</p>
-                <p>kldfkglj</p>
-                <p>kldfkglj</p>
-                <p>kldfkglj</p>
-                <p>kldfkglj</p>
+                <p>Välkommen till Antons skafferi och njut av god mat samt livemusik!</p>
+                <img src="https://cdn.akurat.co/images/uploads/images/akurat_20180308124442_x14J9e.jpg" width="500" height="300" alt="MusikkvallBild"/>
+                <p>Kommande event:</p>
+                <p>29/11    Göran och compani</p>
+                <p>5/12    Magnus Ugla</p>
+                <p>17/12    Eric saade</p>
+                <p>20/1     Malin</p>
+                <p>23/1     Gustav</p>
+                <p>2/2      Magnus och Göran</p>
             </div>
-            <h:link value="BookTable.xhtml" outcome="BookTable" />
         </div>
         <!--./maincontent-->
         <div class="footer" id="contact">
