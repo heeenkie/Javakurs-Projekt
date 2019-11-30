@@ -51,14 +51,6 @@ public class Ordering implements Serializable {
     
     @Column(name = "ISDONE")
     private Boolean isDone;
-      
-    @ManyToMany
-    @JoinTable(
-        name = "DISH_ORDERING", 
-        joinColumns = @JoinColumn(name = "ORDERINGID"), 
-        inverseJoinColumns = @JoinColumn(name = "DISHID")
-    )
-    private List<Dish> dishes;
     
     public Ordering() {
     }
@@ -87,25 +79,6 @@ public class Ordering implements Serializable {
         this.isDone = isDone;
     }
     
-    @XmlTransient
-    public List<Dish> getDishes() {
-        return dishes;
-    }
-
-    public void setDishes(List<Dish> dishes) {
-        this.dishes = dishes;
-    }
-    
-    public void addDish(Dish dish) {
-        getDishes().add(dish);
-        dish.getOrderings().add(this);
-    }
- 
-    public void removeDish(Dish dish) {
-        getDishes().remove(dish);
-        dish.getOrderings().remove(this);
-    }
-   
     @Override
     public int hashCode() {
         int hash = 0;

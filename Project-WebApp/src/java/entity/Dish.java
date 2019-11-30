@@ -6,19 +6,16 @@
 package entity;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -49,8 +46,11 @@ public class Dish implements Serializable {
     @Column(name = "COOKINGTIME")
     private Integer cookingTime; 
     
-    @ManyToMany(mappedBy = "dishes")
-    private List<Ordering> orderings;
+    @Column(name = "ORDERNUMBER")
+    private Integer orderNumber;
+    
+    @Column(name = "TABLENUMBER")
+    private Integer tableNumber;
         
     public Dish() {
     }
@@ -87,13 +87,20 @@ public class Dish implements Serializable {
         this.cookingTime = cookingTime;
     }
     
-    @XmlTransient
-    public List<Ordering> getOrderings() {
-        return orderings;
+    public Integer getOrderNumber() {
+        return orderNumber;
     }
 
-    public void setOrderings(List<Ordering> orderings) {
-        this.orderings = orderings;
+    public void setOrderNumber(Integer orderNumber) {
+        this.orderNumber = orderNumber;
+    }
+
+    public Integer getTableNumber() {
+        return tableNumber;
+    }
+
+    public void setTableNumber(Integer tableNumber) {
+        this.tableNumber = tableNumber;
     }
     
     @Override
