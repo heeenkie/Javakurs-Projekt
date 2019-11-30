@@ -5,7 +5,7 @@
  */
 package beans;
 
-import entity.Ordering;
+import entity.Menu;
 import entity.Person;
 import java.io.Serializable;
 import java.util.List;

@@ -30,7 +30,7 @@ public class ApplicationConfig extends Application {
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(api.DishFacadeREST.class);
-        resources.add(api.OrderingFacadeREST.class);
+        resources.add(api.MenuFacadeREST.class);
         resources.add(api.PersonFacadeREST.class);
     }
     
