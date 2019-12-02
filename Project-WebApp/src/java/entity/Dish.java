@@ -42,7 +42,7 @@ public class Dish implements Serializable {
     
     @Column(name = "PRICE")
     private Double price;
-      
+    
     @Column(name = "COOKINGTIME")
     private Integer cookingTime; 
     
