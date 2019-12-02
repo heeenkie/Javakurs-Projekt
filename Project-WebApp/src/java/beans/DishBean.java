@@ -91,9 +91,7 @@ public class DishBean implements Serializable {
     
     public Dish findById(Integer dishid) {
         EntityManager em = emf.createEntityManager();
-        Dish d = (Dish) em.createNamedQuery("Dish.findByDishid").setParameter("dishid", dishid).getSingleResult();
-        em.close();
-        return d;
+        return (Dish)em.createNamedQuery("Dish.findByDishid").setParameter("dishid", dishid).getSingleResult();
     }  
 
 }

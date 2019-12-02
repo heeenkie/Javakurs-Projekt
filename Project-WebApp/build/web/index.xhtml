@@ -3,7 +3,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Antons skafferi - Startsida</title>
         <h:outputStylesheet library="css" name="style.css"/>
@@ -29,27 +30,48 @@
         <div class="maincontent">
             <div class="lunch" id="lunch">
                 <h2>Dagens lunch</h2>
-                <img src="https://www.thebusinessspace.co.uk/wp-content/uploads/2014/10/FINAL-LUNCH-LOGO-3.jpg" width="400" height="100" alt="DagensLunchBild"/>
-                <br/>#{lunchMenuModel.setMonday("Kyckling")}
-                #{lunchMenuModel.setTuesday("Pasta")}
-                #{lunchMenuModel.setWednesday("Pizza")}
-                #{lunchMenuModel.setThursday("Pannkakor")}
-                #{lunchMenuModel.setFriday("Taco")}
-
-                <h:outputText value='Måndag: #{lunchMenuModel.monday}'></h:outputText><br/>
-                <h:outputText value='Tisdag: #{lunchMenuModel.tuesday}'></h:outputText><br/>
-                <h:outputText value='Onsdag: #{lunchMenuModel.wednesday}'></h:outputText><br/>
-                <h:outputText value='Torsdag: #{lunchMenuModel.thursday}'></h:outputText><br/>
-                <h:outputText value='Fredag: #{lunchMenuModel.friday}'></h:outputText><br/>
+                <p>Lunchen serveras från kl 11-14 och kostar 95 kr.</p>
+                <!--<img src="https://www.thebusinessspace.co.uk/wp-content/uploads/2014/10/FINAL-LUNCH-LOGO-3.jpg" width="400" height="100" alt="DagensLunchBild"/>-->
+                
+                <p>Måndag: Korvstroganoff med ris</p>
+                <p>Tisdag: Spaghetti med köttfärssås</p>
+                <p>Onsdag: Fiskgratäng</p>
+                <p>Torsdag: Pannkakor med sylt och grädde samt ärtsoppa</p>
+                <p>Fredag: Tacopaj med tillbehör</p>
+                
+                
+                
             </div>
             
             <div class="menu" id="menu">
                 <h2>Meny</h2>
+                
+                <c:forEach items="#{menuBean.findAll()}" var="dish">
+                    <p>${dish}</p>
+                </c:forEach>
+                <p>Vår A la carte serveras kvällar från kl 17-20.</p><br/>
+                <p>Boka gärna bord i förväg för att vara säker på att det finns plats.</p>
+                
+                
             </div>
             
             <div class="booktable" id='booktable'>
                 <h2>Boka bord</h2>
+                <form method="get" name="formname" id="formname"
+                    action="xhtml_form.htm" onsubmit="return checksubmit()">
+                    Namn:   <input type="text" name="fullname" /> <br/>
+                    E-post: <input type="text" name="emailaddress" /> <br/>
+                    Hur många är ni som vill boka? <br/>
+                    <input type="checkbox" id="four" name="four"/>
+                    <label for="four"> 1-4 personer</label> <br/>
+                    <input type="checkbox" id="six" name="six"/>
+                    <label for="six"> 5-6 personer</label> <br/><br/>
+                    <input type="reset" value="Rensa" />
+                    <input type="submit" name="submitbtn" value="Skicka bokningsförfrågan" />
+                </form> <br/>
+                
                 <h:link value="BookTable.xhtml" outcome="BookTable" />
+                
             </div>
             <div class="event" id="event">
                 <h2>Musikkvällar</h2>

@@ -103,7 +103,7 @@ public class Menu implements Serializable {
 
     @Override
     public String toString() {
-        return menuid.toString();
+        return name + " " + price.intValue() + " kr";
     }
 
 }
