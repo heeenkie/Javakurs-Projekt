@@ -51,7 +51,10 @@ public class Dish implements Serializable {
     
     @Column(name = "TABLENUMBER")
     private Integer tableNumber;
-        
+    
+    @Column(name = "DONE")
+    private Boolean done;
+    
     public Dish() {
     }
 
@@ -103,6 +106,14 @@ public class Dish implements Serializable {
         this.tableNumber = tableNumber;
     }
     
+    public Boolean getDone() {
+        return done;
+    }
+
+    public void setDone(Boolean done) {
+        this.done = done;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -127,4 +138,6 @@ public class Dish implements Serializable {
     public String toString() {
         return dishid +  ",   " + name + ",     Price: " + price + ",     Cooking Time: " + cookingTime;
     }
+
+
 }
