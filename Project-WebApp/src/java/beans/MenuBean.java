@@ -5,56 +5,34 @@
  */
 package beans;
 
-import entity.Dish;
+import entity.Menu;
+import javax.inject.Named;
+import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.enterprise.context.SessionScoped;
-import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 /**
  *
- * @author andreashenriksson
+ * @author viktorandersson
  */
-
-@Named(value = "dishBean")
+@Named(value = "menuBean")
 @SessionScoped
-public class DishBean implements Serializable {
-    private Dish dish;
-    private List<Dish> dishes;
-    
+public class MenuBean implements Serializable {
+    private Menu menu;
+    /**
+     * Creates a new instance of MenuBean
+     */
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("Project-WebAppPU");
     
-    public DishBean() {
-    }
-     
-    public Dish getDish() {
-        return dish;
-    }
-
-    public void setDish(Dish dish) {
-        this.dish = dish;
-    }
-
-    public List<Dish> getDishes() {
-        return findAll();
-    }
-
-    public void setDishes(List<Dish> dishes) {
-        this.dishes = dishes;
+    public MenuBean() {
     }
     
-    public void save() {
-        persist(this.dish);
-        this.dish = new Dish();
-        this.dishes = findAll();
-    }
-    public void persist(Dish entity) {
+    public void persist(Menu entity) {
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
@@ -68,7 +46,7 @@ public class DishBean implements Serializable {
         }
     }
     
-    public void delete(Dish entity) {
+    public void delete(Menu entity) {
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
@@ -82,16 +60,16 @@ public class DishBean implements Serializable {
         }
     }
     
-    public List<Dish> findAll() {
+    public List<Menu> findAll() {
         EntityManager em = emf.createEntityManager();
-        List<Dish> dList = em.createNamedQuery("Dish.findAll").getResultList();
+        List<Menu> dList = em.createNamedQuery("Menu.findAll").getResultList();
         em.close();
         return dList;
     }
     
-    public Dish findById(Integer dishid) {
+    public Menu findById(Integer menuid) {
         EntityManager em = emf.createEntityManager();
-        return (Dish)em.createNamedQuery("Dish.findByDishid").setParameter("dishid", dishid).getSingleResult();
+        return (Menu)em.createNamedQuery("Menu.findByMenuid").setParameter("menuid", menuid).getSingleResult();
     }  
-
+    
 }
