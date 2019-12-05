@@ -26,7 +26,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Dish.findAll", query = "SELECT d FROM Dish d"),
-    @NamedQuery(name = "Dish.findByDishid", query = "SELECT d FROM Dish d WHERE d.dishid = :dishid")
+    @NamedQuery(name = "Dish.findByDishid", query = "SELECT d FROM Dish d WHERE d.dishid = :dishid"),
+    @NamedQuery(name = "Dish.findByOrderNumber", query = "SELECT d FROM Dish d WHERE d.orderNumber = :orderNumber")
 })
 public class Dish implements Serializable {
     private static final long serialVersionUID = 1L;

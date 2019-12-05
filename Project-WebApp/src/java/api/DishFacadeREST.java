@@ -64,6 +64,13 @@ public class DishFacadeREST extends AbstractFacade<Dish> {
     }
 
     @GET
+    @Path("order/{orderNumber}")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public List<Dish> findByOrderNumber(@PathParam("orderNumber") Integer orderNumber){
+        return getEntityManager().createNamedQuery("Dish.findByOrderNumber").setParameter("orderNumber", orderNumber).getResultList();
+    }
+    
+    @GET
     @Override
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public List<Dish> findAll() {
