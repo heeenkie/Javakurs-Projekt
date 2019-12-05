@@ -11,6 +11,7 @@
     </h:head>
     
     <h:body>
+        <!-- Header med titel och menyknappar -->
         <div class="header">
             <div class="logo">
                 <h1><h:link value="Antons Skafferi" outcome="index" class="logo"/></h1>
@@ -20,82 +21,137 @@
                 <a href="#lunch" class="button">Lunch</a>
                 <a href="#menu" class="button">Meny</a>
                 <a href="#booktable" class="button">Boka bord</a>
-                <a href="#event" class="button">Event</a>
+                <a href="#event" class="button">Musik</a>
                 <a href="#contact" class="button">Kontakt</a>
                 
             </div>
         </div>
         <!--./header-->
         
+        
+        <!-- Maincontent -->
         <div class="maincontent">
-            <div class="lunch" id="lunch">
-                <h2>Dagens lunch</h2>
-                <p>Lunchen serveras från kl 11-14 och kostar 95 kr.</p>
-                <!--<img src="https://www.thebusinessspace.co.uk/wp-content/uploads/2014/10/FINAL-LUNCH-LOGO-3.jpg" width="400" height="100" alt="DagensLunchBild"/>-->
-                
-                <p>Måndag: Korvstroganoff med ris</p>
-                <p>Tisdag: Spaghetti med köttfärssås</p>
-                <p>Onsdag: Fiskgratäng</p>
-                <p>Torsdag: Pannkakor med sylt och grädde samt ärtsoppa</p>
-                <p>Fredag: Tacopaj med tillbehör</p>
-                
-                
-                
-            </div>
             
-            <div class="menu" id="menu">
-                <h2>Meny</h2>
-                
-                <c:forEach items="#{menuBean.findAll()}" var="dish">
-                    <p>${dish}</p>
-                </c:forEach>
-                <p>Vår A la carte serveras kvällar från kl 17-20.</p><br/>
-                <p>Boka gärna bord i förväg för att vara säker på att det finns plats.</p>
-                
-                
+            <!-- Dagens lunch -->
+            <div class="container" id="lunch">
+                <div class="content" style="max-width:500px">
+                    <h2 class="centered">Dagens lunch</h2> <hr/>
+                    <p><i>Lunchen serveras från kl 11-14 och kostar 95 kr.</i></p>
+                    <!-- <p><strong>Måndag: </strong> Korvstroganoff med ris</p>
+                    <p><strong>Tisdag: </strong> Spaghetti med köttfärssås</p>
+                    <p><strong>Onsdag: </strong> Fiskgratäng</p>
+                    <p><strong>Torsdag: </strong> Pannkakor med sylt och grädde</p>
+                    <p><strong>Fredag: </strong> Tacopaj med tillbehör</p> -->
+                    <table>
+                        <tr>
+                            <th>Måndag:</th>
+                            <td>Korvstroganoff med ris</td>
+                        </tr>
+                        <tr>
+                            <th>Tisdag:</th>
+                            <td>Spaghetti med köttfärssås</td>
+                        </tr>
+                        <tr>
+                            <th>Onsdag:</th>
+                            <td>Fiskgratäng</td>
+                        </tr>
+                        <tr>
+                            <th>Torsdag:</th>
+                            <td>Pannkakor med sylt och grädde</td>
+                        </tr>
+                        <tr>
+                            <th>Fredag:</th>
+                            <td>Tacopaj med tillbehör</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
-            
-            <div class="booktable" id='booktable'>
-                <h2>Boka bord</h2>
-                <form method="get" name="formname" id="formname"
-                    action="xhtml_form.htm" onsubmit="return checksubmit()">
-                    Namn:   <input type="text" name="fullname" /> <br/>
-                    E-post: <input type="text" name="emailaddress" /> <br/>
-                    Hur många är ni som vill boka? <br/>
-                    <input type="checkbox" id="four" name="four"/>
-                    <label for="four"> 1-4 personer</label> <br/>
-                    <input type="checkbox" id="six" name="six"/>
-                    <label for="six"> 5-6 personer</label> <br/><br/>
-                    <input type="reset" value="Rensa" />
-                    <input type="submit" name="submitbtn" value="Skicka bokningsförfrågan" />
-                </form> <br/>
-                
-                <h:link value="BookTable.xhtml" outcome="BookTable" />
-                
+
+            <!-- A la carte -->
+            <div class="container" id="menu">
+                <div class="content" style="max-width:500px">
+                    <h2 class="centered">Meny</h2> <hr/>
+                    <c:forEach items="#{menuBean.findAll()}" var="dish">
+                        <p>${dish}</p>
+                    </c:forEach>
+                    <p>Vår A la carte serveras kvällar från kl 17-20.</p>
+                    <p>Boka gärna bord i förväg för att vara säker på att det finns plats.</p>
+                </div>
             </div>
-            <div class="event" id="event">
-                <h2>Musikkvällar</h2>
-                <p>Välkommen till Antons skafferi och njut av god mat samt livemusik!</p>
-                <img src="https://cdn.akurat.co/images/uploads/images/akurat_20180308124442_x14J9e.jpg" width="500" height="300" alt="MusikkvallBild"/>
-                <p>Kommande event:</p>
-                <p>29/11    Göran och compani</p>
-                <p>5/12    Magnus Ugla</p>
-                <p>17/12    Eric saade</p>
-                <p>20/1     Malin</p>
-                <p>23/1     Gustav</p>
-                <p>2/2      Magnus och Göran</p>
+
+            <!-- Boka bord -->
+            <div class="container" id='booktable'>
+                <div class="content" style="max-width:500px">
+                    <h2 class="centered">Boka bord</h2> <hr/>
+                    <p>Bokningen gäller för samma dag som du ska besöka restaurangen. Boka via formuläret nedan.</p>
+                    <img src="http://www.sagateatern.se/wp-content/uploads/2018/01/Boka-bord.png" style="width:100%;max-width:700px"/>
+                    <form method="post" action="mailto:antonsskafferi@gmail.com?subject=Bordsbokning" enctype="text/plain">
+                        <input type="text" name="Namn" placeholder="Namn på bokningsansvarig"/> <br/>
+                        <input type="email" name="E-postadress" placeholder="E-post till bokningsansvarig"/> <br/>
+                        <br/> <strong>Hur många vill du boka för?</strong> <br/>
+                        <input type="radio" name="Personer" value="1-4"/> 1-4 personer<br/>
+                        <input type="radio" name="Personer" value="5-6"/> 5-6 personer<br/><br/>
+                        <strong>Vilken tid vill ni boka?</strong> <br/>
+                        <input type="radio" name="Bokningstid" value="17-18"/> 17:00-18:00<br/>
+                        <input type="radio" name="Bokningstid" value="18-19"/> 18:00-19:00<br/>
+                        <input type="radio" name="Bokningstid" value="19-20"/> 19:00-20:00<br/>
+                        <input type="radio" name="Bokningstid" value="20-21"/> 20:00-21:00<br/><br/>
+                        <p> <strong>För att bekräfta bokningen:</strong> <br/> Klicka "OK" nedan, kontrollera att bokningen stämmer, skicka mailet. </p>
+                        <button type="submit" name="Boka" value="OK" class="sendBut">OK <img src="http://cdn.onlinewebfonts.com/svg/img_438116.png" height="13" /></button>
+                        </form> <br/>
+                    
+                
+                </div>
             </div>
-        </div>
+           
+            <!-- Musik -->
+            <div class="container" id="event">
+                <div class="content" style="max-width:500px">
+                    <h2 class="centered">Musikkvällar</h2> <hr/>
+                    <p>Varje lördag gästas restaurangen av högklassig live-musik.
+                    Nedan visas kommande spelningar.</p>
+                    <table>
+                        <tr>
+                            <th>11/1</th>
+                            <td>Göran och gänget</td>
+                        </tr>
+                        <tr>
+                            <th>18/1</th>
+                            <td>Magnus Uggla</td>
+                        </tr>
+                        <tr>
+                            <th>25/1</th>
+                            <td>Eric Saade</td>
+                        </tr>
+                        <tr>
+                            <th> 1/2</th>
+                            <td>Magnus och Göran</td>
+                        </tr>
+                    </table>
+                    <br/> <img src="https://cdn.akurat.co/images/uploads/images/akurat_20180308124442_x14J9e.jpg" style="width:100%;max-width:700px"/>
+                </div>
+            </div>
+
+            <!-- Kontakt -->
+            <div class="container" id="contact">
+                <div class="content" style="max-width:500px">
+                    <h2 class="centered">Kontakt</h2> <hr/>
+                        <p> <strong>Telefonnummer:</strong> <a href="tel:060-10 11 00">060-10 11 00</a> </p>
+                        <p> <strong>E-post:</strong> <a href="mailto:antonsskafferi@gmail.com">antonsskafferi@gmail.com</a> <br/> </p>
+                        <p> <strong>Adress:</strong> Storgatan 73, 852 30, Sundsvall <br/> <br/>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1848.9038103672392!2d17.282714085413886!3d62.3929216120434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46645df47d4b8591%3A0x96bb42541c079fb!2sStorgatan%2073A%2C%20852%2030%20Sundsvall!5e0!3m2!1sen!2sse!4v1574895299000!5m2!1sen!2sse" width="500" height="200" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                         </p>
+                </div>
+            </div>
         <!--./maincontent-->
-        <div class="footer" id="contact">
-            <h3>Kontakt</h3>
-                <p>Telefonnummer: <a href="tel:060-101100">060-101100</a></p>
-                <p>Email: <a href="mailto:antonsskafferi@gmail.com">antonsskafferi@gmail.com</a></p>
-                <p>Adress: Storgatan 73, Sundsvall <br/><br/><br/>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1848.9038103672392!2d17.282714085413886!3d62.3929216120434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46645df47d4b8591%3A0x96bb42541c079fb!2sStorgatan%2073A%2C%20852%2030%20Sundsvall!5e0!3m2!1sen!2sse!4v1574895299000!5m2!1sen!2sse" width="200" height="200" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-                </p>
-            <h:link value="Test.xhtml" outcome="Test"/>
         </div>
-        <!--./footer-->
+        
+            <div class="footer">
+                <div class="content">
+                    <p style="text-align: center"> © Antons Skafferi, 2019</p>
+                    <h:link value="Test.xhtml" outcome="Test"/>
+                </div>
+            </div>
+
     </h:body>
 </html>

@@ -1,60 +1,100 @@
-  *{
-      box-sizing: border-box;
-  }
-  
-  
-  body{
-      margin: 0px;
-      position: relative;
-      display: block;
-      text-align: center;
-  }
-  
-  div{
-      display: block;
-      padding: 10px;
-  }
-  
-  .header{
-    background-color: #006666;
-    padding: 20px;
-  }
-  
-  
-  .logo{
-      color: white;
-      text-decoration: none;
-  }
-  
-  .buttons a{
-      text-decoration: none;
-      color: black;
-      background-color: lightgray;
-      border-radius: 2px 2px 2px 2px;
-      padding: 7px;
-      padding-right: 15px;
-      padding-left: 15px;
-      size: 10px;
-  }
-  
-  .buttons form{
-      display: inline;
-  }
-  
-  .maincontent{
-      background-color: whitesmoke;
-      padding: 20px;
-  }
-  .footer{
-      background-color: #dcdcdc;
-      padding: 20px;
-      line-height: 5px;
-  }
-  input[type=text], select {
-    padding: 5px 7px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
+*{
+  box-sizing: border-box;
+}
+
+body{ /*
+  display: inline-block;
+  text-align: center;
+  position: relative; */
+  margin: 0;
+  font-family: arial;
+  background-color: #f5f2ed;
+}
+
+/* Texten "Antons skafferi" längst upp i headern */
+.logo{
+  font-family: courier;
+  color: whitesmoke;
+  font-size: 150%;
+  text-decoration: none;
+  text-shadow: 2px 2px 3px black;
+}
+
+/* Bild och sidrubrik längst upp */
+.header{
+  text-align: center;
+  background-image: url("https://cdn.popmenu.com/image/upload/c_limit,f_auto,h_1440,q_auto,w_1440/r0ieq2khg0q5q5bdpt78.png");
+  height: 30%;
+  padding: 20px;
+}
+
+/* Knapparna längst upp i menyn */
+.sendBut, .buttons a{
+  text-decoration: none;
+  color: whitesmoke;
+  background-color: #6b8096;
+  border-radius: 2px;
+  padding: 7px;
+  cursor: pointer;
+}
+.buttons form{
+  display: inline;
+}
+
+/* Gör så att sidinnehållet centreras och justerar text åt vänster */
+.container{
+  padding:0.01em 15px;
+}
+.content{
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 980px;
+  margin-bottom: 20px;
+}
+
+/* Rubrikerna på sidan */
+h2{
+  font-size: 28px;
+  font-family: courier;
+  display: inline-block;
+  width: auto;
+  text-align: center;
+  color: #6b8096;
+  margin-bottom: 1px;
+}
+
+/* Delen längst ned på sidan */
+.footer{
+  background-color: #dcdcdc;
+  padding: 20px;
+  line-height: 5px;
+}
+
+/* Inmatningsrutorna vid bordsbokning */
+input[type=text], input[type=email], select {
+padding: 5px 7px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+width: 100%;
+}
+
+/* Tabellerna som är för musikkvällarna*/
+table, td, th {
+text-align: left;
+}
+
+table {
+border-collapse: collapse;
+width: 100%;
+}
+
+th, td {
+padding: 2px;
+}
+
+hr {
+  border: 1px dashed #9e968e;
+}
