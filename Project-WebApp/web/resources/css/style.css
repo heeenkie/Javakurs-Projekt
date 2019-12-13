@@ -2,10 +2,7 @@
   box-sizing: border-box;
 }
 
-body{ /*
-  display: inline-block;
-  text-align: center;
-  position: relative; */
+body{
   margin: 0;
   font-family: arial;
   background-color: #f5f2ed;
@@ -36,6 +33,8 @@ body{ /*
   border-radius: 2px;
   padding: 7px;
   cursor: pointer;
+  font-size: 25px;
+  font-weight: bold;
 }
 .buttons form{
   display: inline;
@@ -50,24 +49,18 @@ body{ /*
   margin-right: auto;
   max-width: 980px;
   margin-bottom: 20px;
+  font-size: 25px;
 }
 
 /* Rubrikerna på sidan */
 h2{
-  font-size: 28px;
+  font-size: 48px;
   font-family: courier;
   display: inline-block;
   width: auto;
   text-align: center;
   color: #6b8096;
-  margin-bottom: 1px;
-}
-
-/* Delen längst ned på sidan */
-.footer{
-  background-color: #dcdcdc;
-  padding: 20px;
-  line-height: 5px;
+  margin-bottom: 0.5px;
 }
 
 /* Inmatningsrutorna vid bordsbokning */
@@ -85,16 +78,30 @@ width: 100%;
 table, td, th {
 text-align: left;
 }
-
 table {
 border-collapse: collapse;
 width: 100%;
 }
-
 th, td {
 padding: 2px;
 }
-
 hr {
   border: 1px dashed #9e968e;
+}
+
+/* Delen längst ned på sidan */
+.footer{
+  background-color: #dcdcdc;
+  padding: 20px;
+  line-height: 5px;
+}
+
+/* Text under rubriker */
+#helptext {
+    font-size: 23px;
+    font-family: courier;
+    font-weight: bold;
+    color: #6b8096;
+    margin-top: 1px;
+    padding: 1px;
 }

@@ -19,7 +19,7 @@
             
             <div class="buttons">
                 <a href="#lunch" class="button">Lunch</a>
-                <a href="#menu" class="button">Meny</a>
+                <a href="#menu" class="button">A la carte</a>
                 <a href="#booktable" class="button">Boka bord</a>
                 <a href="#event" class="button">Musik</a>
                 <a href="#contact" class="button">Kontakt</a>
@@ -36,31 +36,26 @@
             <div class="container" id="lunch">
                 <div class="content" style="max-width:500px">
                     <h2 class="centered">Dagens lunch</h2> <hr/>
-                    <p><i>Lunchen serveras från kl 11-14 och kostar 95 kr.</i></p>
-                    <!-- <p><strong>Måndag: </strong> Korvstroganoff med ris</p>
-                    <p><strong>Tisdag: </strong> Spaghetti med köttfärssås</p>
-                    <p><strong>Onsdag: </strong> Fiskgratäng</p>
-                    <p><strong>Torsdag: </strong> Pannkakor med sylt och grädde</p>
-                    <p><strong>Fredag: </strong> Tacopaj med tillbehör</p> -->
+                    <p id="helptext">kl 11-14 • 95 kr</p>
                     <table>
                         <tr>
-                            <th>Måndag:</th>
+                            <th>Måndag</th>
                             <td>Korvstroganoff med ris</td>
                         </tr>
                         <tr>
-                            <th>Tisdag:</th>
+                            <th>Tisdag</th>
                             <td>Spaghetti med köttfärssås</td>
                         </tr>
                         <tr>
-                            <th>Onsdag:</th>
+                            <th>Onsdag</th>
                             <td>Fiskgratäng</td>
                         </tr>
                         <tr>
-                            <th>Torsdag:</th>
+                            <th>Torsdag</th>
                             <td>Pannkakor med sylt och grädde</td>
                         </tr>
                         <tr>
-                            <th>Fredag:</th>
+                            <th>Fredag</th>
                             <td>Tacopaj med tillbehör</td>
                         </tr>
                     </table>
@@ -70,12 +65,12 @@
             <!-- A la carte -->
             <div class="container" id="menu">
                 <div class="content" style="max-width:500px">
-                    <h2 class="centered">Meny</h2> <hr/>
+                    <h2 class="centered">A la carte</h2> <hr/>
+                    <p id="helptext">kl 18-22</p>
                     <c:forEach items="#{menuBean.findAll()}" var="dish">
-                        <p>${dish}</p>
+                        ${dish} <br/>
                     </c:forEach>
-                    <p>Vår A la carte serveras kvällar från kl 17-20.</p>
-                    <p>Boka gärna bord i förväg för att vara säker på att det finns plats.</p>
+                    
                 </div>
             </div>
 
@@ -83,19 +78,21 @@
             <div class="container" id='booktable'>
                 <div class="content" style="max-width:500px">
                     <h2 class="centered">Boka bord</h2> <hr/>
-                    <p>Bokningen gäller för samma dag som du ska besöka restaurangen. Boka via formuläret nedan.</p>
                     <img src="http://www.sagateatern.se/wp-content/uploads/2018/01/Boka-bord.png" style="width:100%;max-width:700px"/>
                     <form method="post" action="mailto:antonsskafferi@gmail.com?subject=Bordsbokning" enctype="text/plain">
-                        <input type="text" name="Namn" placeholder="Namn på bokningsansvarig"/> <br/>
-                        <input type="email" name="E-postadress" placeholder="E-post till bokningsansvarig"/> <br/>
+                        <br/> <strong>Namn på bokningsansvarig:</strong> <br/>
+                        <input type="text" name="Namn" placeholder="Skriv här..."/> 
+                        <br/> <strong>E-post:</strong> <br/>
+                        <input type="email" name="E-postadress" placeholder="Skriv här..."/> <br/>
                         <br/> <strong>Hur många vill du boka för?</strong> <br/>
                         <input type="radio" name="Personer" value="1-4"/> 1-4 personer<br/>
                         <input type="radio" name="Personer" value="5-6"/> 5-6 personer<br/><br/>
-                        <strong>Vilken tid vill ni boka?</strong> <br/>
-                        <input type="radio" name="Bokningstid" value="17-18"/> 17:00-18:00<br/>
-                        <input type="radio" name="Bokningstid" value="18-19"/> 18:00-19:00<br/>
-                        <input type="radio" name="Bokningstid" value="19-20"/> 19:00-20:00<br/>
-                        <input type="radio" name="Bokningstid" value="20-21"/> 20:00-21:00<br/><br/>
+                        <strong>Välj önskad ankomsttid och datum.</strong>
+                        <br/><input type="date" name="Datum"/>  <br/><br/>
+                        <input type="radio" name="Bokningstid" value="18"/> kl 18:00<br/>
+                        <input type="radio" name="Bokningstid" value="19"/> kl 19:00<br/>
+                        <input type="radio" name="Bokningstid" value="20"/> kl 20:00<br/>
+                        <input type="radio" name="Bokningstid" value="21"/> kl 21:00<br/><br/>
                         <p> <strong>För att bekräfta bokningen:</strong> <br/> Klicka "OK" nedan, kontrollera att bokningen stämmer, skicka mailet. </p>
                         <button type="submit" name="Boka" value="OK" class="sendBut">OK <img src="http://cdn.onlinewebfonts.com/svg/img_438116.png" height="13" /></button>
                         </form> <br/>
@@ -108,8 +105,7 @@
             <div class="container" id="event">
                 <div class="content" style="max-width:500px">
                     <h2 class="centered">Musikkvällar</h2> <hr/>
-                    <p>Varje lördag gästas restaurangen av högklassig live-musik.
-                    Nedan visas kommande spelningar.</p>
+                    <p id="helptext">kl 20-22 • lördagar</p>
                     <table>
                         <tr>
                             <th>11/1</th>
